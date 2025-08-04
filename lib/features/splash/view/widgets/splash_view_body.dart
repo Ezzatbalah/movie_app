@@ -54,7 +54,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToAppBar() {
     Future.delayed(const Duration(seconds: 3), () {
-      GoRouter.of(context).push(AppRouter.KappbarView);
+      GoRouter.of(context).push(AppRouter.kAppbarView);
     });
   }
 }
