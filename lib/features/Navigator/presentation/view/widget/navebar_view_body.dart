@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constant.dart';
+import 'package:movie_app/features/browse/presentation/view/browse_view.dart';
+import 'package:movie_app/features/home/presentation/view/home_view.dart';
+import 'package:movie_app/features/search/presentation/view/search_view.dart';
+import 'package:movie_app/features/watchList/presentation/view/watch_view.dart';
 
 class NavebarViewBody extends StatefulWidget {
   const NavebarViewBody({super.key});
@@ -12,10 +16,10 @@ class _NavbarViewState extends State<NavebarViewBody> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const Center(child: Text("Home")),
-    const Center(child: Text("Search")),
-    const Center(child: Text("Browser")),
-    const Center(child: Text("Watchlist")),
+    const HomeView(),
+    const SearchView(),
+    const BrowseView(),
+    const WatchListView(),
   ];
 
   @override
@@ -33,11 +37,20 @@ class _NavbarViewState extends State<NavebarViewBody> {
         unselectedItemColor: kNaveBarColorUnSelected,
         showUnselectedLabels: true,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.movie), label: "Browser"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
+            icon: Icon(Icons.home, size: 30),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search, size: 30),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie, size: 30),
+            label: "Browser",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark, size: 30),
             label: "Watchlist",
           ),
         ],

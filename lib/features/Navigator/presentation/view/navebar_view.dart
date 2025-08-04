@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/Navigator/view/widget/navebar_view_body.dart';
+import 'package:movie_app/features/Navigator/presentation/view/widget/navebar_view_body.dart';
 
 class NavebarView extends StatelessWidget {
   const NavebarView({super.key});
