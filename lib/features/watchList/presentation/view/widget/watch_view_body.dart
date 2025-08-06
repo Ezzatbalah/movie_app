@@ -5,6 +5,17 @@ class WatchListViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Watch'));
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 12),
+            Text('Watchlist', style: TextStyle(fontSize: 22)),
+          ],
+        ),
+      ),
+    );
   }
 }

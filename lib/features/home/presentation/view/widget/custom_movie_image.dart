@@ -12,7 +12,7 @@ class CustomMovieImage extends StatelessWidget {
   });
   final double? width;
   final double? height;
-  final bool isPositioned; // هل هنستخدم Positioned ؟
+  final bool isPositioned;
   final double left;
   final double bottom;
 

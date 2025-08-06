@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextFild extends StatelessWidget {
   const CustomTextFild({super.key});
@@ -8,26 +7,22 @@ class CustomTextFild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        fillColor: const Color(0xFF514F4F),
+        filled: true,
+        prefixIcon: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.search),
+        ),
+        hintText: 'Search',
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.5)),
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(12),
         ),
-        hintText: 'Search',
-        suffixIcon: Opacity(
-          opacity: .8,
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(FontAwesomeIcons.magnifyingGlass),
-            iconSize: 22,
-            color: Colors.white,
-          ),
-        ),
       ),
-      onChanged: (value) {},
     );
   }
 }

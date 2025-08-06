@@ -34,6 +34,7 @@ class CustomImageDetailes extends StatelessWidget {
                 ),
                 SizedBox(height: 3),
                 CustomBoxAction(),
+
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

@@ -17,9 +17,12 @@ class _CustomIconState extends State<CustomIcon> {
           isSelected = !isSelected;
         });
       },
-      child: Icon(
-        isSelected ? Icons.bookmark_added_rounded : Icons.bookmark_add_outlined,
-        color: isSelected ? Color(0xffF7B539) : Colors.grey,
+      child: Image.asset(
+        isSelected
+            ? 'assets/images/bookmark.png'
+            : 'assets/images/Icon awesome-bookmark.png',
+        width: 28,
+        height: 28,
       ),
     );
   }
