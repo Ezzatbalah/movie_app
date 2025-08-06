@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
+
 import 'package:movie_app/core/utils/style.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_movie_image.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_rate.dart';
 
-class RecomendedListView extends StatelessWidget {
-  const RecomendedListView({super.key});
+class MoreLikeThisListView extends StatelessWidget {
+  const MoreLikeThisListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class RecomendedListView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 12, top: 10),
             child: Text(
-              'Recomended ',
+              'More Like This ',
               style: Style.textStyle14.copyWith(fontSize: 15),
             ),
           ),
@@ -40,7 +41,7 @@ class RecomendedListView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomMovieImage(),
-                        CustomRate(),
+                        Expanded(child: CustomRate()),
                         const SizedBox(height: 4),
                         Text(
                           'Deadpool 2',

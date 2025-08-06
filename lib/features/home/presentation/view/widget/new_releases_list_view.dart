@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/utils/app_router.dart';
 import 'package:movie_app/core/utils/style.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_movie_image.dart';
 
@@ -29,7 +31,12 @@ class NewReleasesListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: CustomMovieImage(),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.khomeViewDetails);
+                    },
+                    child: CustomMovieImage(),
+                  ),
                 );
               },
             ),

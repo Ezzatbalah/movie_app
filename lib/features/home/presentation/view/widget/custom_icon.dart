@@ -18,7 +18,7 @@ class _CustomIconState extends State<CustomIcon> {
         });
       },
       child: Icon(
-        isSelected ? Icons.bookmark_added_rounded : Icons.add_box,
+        isSelected ? Icons.bookmark_added_rounded : Icons.bookmark_add_outlined,
         color: isSelected ? Color(0xffF7B539) : Colors.grey,
       ),
     );

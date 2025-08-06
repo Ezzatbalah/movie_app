@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/browse/presentation/view/widget/new_releases_list_view.dart';
+import 'package:movie_app/features/home/presentation/view/widget/new_releases_list_view.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_movie_image.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_text.dart';
+import 'package:movie_app/features/home/presentation/view/widget/custom_carousel_slider.dart';
 import 'package:movie_app/features/home/presentation/view/widget/recommended_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -17,13 +18,8 @@ class HomeViewBody extends StatelessWidget {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Image.asset(
-                    'assets/images/imagevid.png',
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: 200,
-                  ),
-                  const CustomMovieImage(),
+                  CustomCarouselSlider(),
+                  const CustomMovieImage(isPositioned: true),
                 ],
               ),
               const CustomText(),
