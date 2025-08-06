@@ -7,9 +7,10 @@ class NewReleasesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
-      height: 190,
+      height: screenWidth * 0.5,
       color: Color(0xff282A28),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

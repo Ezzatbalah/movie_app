@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/presentation/view/widget/custom_icon.dart';
 
 class CustomMovieImage extends StatelessWidget {
   const CustomMovieImage({super.key});
@@ -12,11 +13,7 @@ class CustomMovieImage extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset('assets/images/Image.png', width: screenWidth * 0.25),
-          const Positioned(
-            top: 4,
-            left: 4,
-            child: Icon(Icons.add_box, color: Colors.grey),
-          ),
+          const Positioned(top: 4, left: 4, child: CustomIcon()),
         ],
       ),
     );
