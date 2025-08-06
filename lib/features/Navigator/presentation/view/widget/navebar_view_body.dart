@@ -3,7 +3,7 @@ import 'package:movie_app/constant.dart';
 import 'package:movie_app/features/browse/presentation/view/browse_view.dart';
 import 'package:movie_app/features/home/presentation/view/home_view.dart';
 import 'package:movie_app/features/search/presentation/view/search_view.dart';
-import 'package:movie_app/features/watchList/presentation/view/watch_view.dart';
+import 'package:movie_app/features/wishList/presentation/view/wish_view.dart';
 
 class NavebarViewBody extends StatefulWidget {
   const NavebarViewBody({super.key});
@@ -19,7 +19,7 @@ class _NavbarViewState extends State<NavebarViewBody> {
     const HomeView(),
     const SearchView(),
     const BrowseView(),
-    const WatchListView(),
+    const WishView(),
   ];
 
   @override
