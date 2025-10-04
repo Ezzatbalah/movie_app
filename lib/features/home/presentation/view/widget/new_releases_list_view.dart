@@ -35,7 +35,9 @@ class NewReleasesListView extends StatelessWidget {
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.khomeViewDetails);
                     },
-                    child: CustomMovieImage(),
+                    child: CustomMovieImage(
+                      imageUrl: 'assets/images/Image.png',
+                    ),
                   ),
                 );
               },

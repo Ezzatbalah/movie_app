@@ -4,36 +4,46 @@ import 'package:movie_app/features/home/presentation/view/widget/custom_icon.dar
 class CustomMovieImage extends StatelessWidget {
   const CustomMovieImage({
     super.key,
+    required this.imageUrl,
+    this.isPositioned = false,
     this.width,
     this.height,
-    this.isPositioned = false,
     this.left = 16,
     this.bottom = -60,
   });
+
+  final String imageUrl;
+  final bool isPositioned;
   final double? width;
   final double? height;
-  final bool isPositioned;
   final double left;
   final double bottom;
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    Widget imageContent = Stack(
+    final imageWidget = imageUrl.startsWith('http')
+        ? Image.network(
+            imageUrl,
+            width: width ?? MediaQuery.of(context).size.width * 0.25,
+            height: height,
+            fit: BoxFit.cover,
+          )
+        : Image.asset(
+            imageUrl,
+            width: width ?? MediaQuery.of(context).size.width * 0.25,
+            height: height,
+            fit: BoxFit.cover,
+          );
+
+    final imageContent = Stack(
       children: [
-        Image.asset(
-          'assets/images/Image.png',
-          width: width ?? screenWidth * 0.25,
-          height: height,
-        ),
+        imageWidget,
         const Positioned(top: -3, left: 0, child: CustomIcon()),
       ],
     );
 
-    if (isPositioned) {
-      return Positioned(left: left, bottom: bottom, child: imageContent);
-    }
-
-    return imageContent;
+    return isPositioned
+        ? Positioned(left: left, bottom: bottom, child: imageContent)
+        : imageContent;
   }
 }

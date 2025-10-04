@@ -16,7 +16,10 @@ class CustomImageDetailes extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomMovieImage(width: screenWidth * 0.34),
+          CustomMovieImage(
+            imageUrl: 'assets/images/Image.png',
+            width: screenWidth * 0.34,
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

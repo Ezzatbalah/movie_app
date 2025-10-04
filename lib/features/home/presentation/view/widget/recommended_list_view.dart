@@ -39,7 +39,7 @@ class RecomendedListView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomMovieImage(),
+                        CustomMovieImage(imageUrl: 'assets/images/Image.png'),
                         CustomRate(),
                         const SizedBox(height: 4),
                         Text(

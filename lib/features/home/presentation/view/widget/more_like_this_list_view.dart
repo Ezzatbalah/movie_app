@@ -40,7 +40,7 @@ class MoreLikeThisListView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomMovieImage(),
+                        CustomMovieImage(imageUrl: 'assets/images/Image.png'),
                         Expanded(child: CustomRate()),
                         const SizedBox(height: 4),
                         Text(

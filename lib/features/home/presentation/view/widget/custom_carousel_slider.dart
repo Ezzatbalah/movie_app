@@ -2,39 +2,61 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
+import 'package:movie_app/features/home/data/model/popular/movie_result.dart';
 
 class CustomCarouselSlider extends StatelessWidget {
-  const CustomCarouselSlider({super.key});
-
+  const CustomCarouselSlider({
+    super.key,
+    required this.popular,
+    this.onPageChanged,
+  });
+  final List<MovieResult> popular;
+  final Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(AppRouter.khomeViewDetails);
-      },
-      child: CarouselSlider(
-        options: CarouselOptions(
-          height: 200,
-          autoPlay: true,
-          viewportFraction: 1,
-        ),
-        items:
-            [
-              'assets/images/imagevid.png',
-              'assets/images/Image.png',
-              'assets/images/imagevid.png',
-            ].map((imagePath) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Image.asset(
-                    imagePath,
+    return CarouselSlider(
+      options: CarouselOptions(
+        onPageChanged: (index, reason) {
+          if (onPageChanged != null) onPageChanged!(index);
+        },
+        height: 200,
+        autoPlay: true,
+        autoPlayInterval: const Duration(seconds: 5),
+        viewportFraction: 1,
+        enlargeCenterPage: true,
+      ),
+      items: popular.map((movie) {
+        final imageUrl = movie.backdropPath != null
+            ? 'https://image.tmdb.org/t/p/w500${movie.backdropPath}'
+            : null;
+
+        return GestureDetector(
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.khomeViewDetails);
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: imageUrl != null
+                ? Image.network(
+                    imageUrl,
                     fit: BoxFit.cover,
                     width: double.infinity,
-                  );
-                },
-              );
-            }).toList(),
-      ),
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        'assets/images/imagevid.png',
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      );
+                    },
+                  )
+                : Image.asset(
+                    'assets/images/default_movie.jpg',
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+          ),
+        );
+      }).toList(),
     );
   }
 }
