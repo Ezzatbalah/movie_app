@@ -33,7 +33,7 @@ class _NavbarViewState extends State<NavebarViewBody> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: kNaveBarColorSelected, // اللون لما يكون tab متعلم
+        selectedItemColor: kNaveBarColorSelected,
         unselectedItemColor: kNaveBarColorUnSelected,
         showUnselectedLabels: true,
         items: const [

@@ -7,13 +7,10 @@ class WaishViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.only(top: 50, left: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 12),
-            Text('Watchlist', style: TextStyle(fontSize: 22)),
-          ],
+          children: [Text('Watchlist', style: TextStyle(fontSize: 22))],
         ),
       ),
     );
