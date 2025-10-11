@@ -3,6 +3,8 @@ import 'package:movie_app/core/error/failuer.dart';
 import 'package:movie_app/core/utils/api_services.dart';
 import 'package:movie_app/features/home/data/model/new_realeases/movie_new_releases_model.dart';
 import 'package:movie_app/features/home/data/model/popular/movie_result.dart';
+import 'package:movie_app/features/home/data/model/recomended/recommended_model.dart';
+
 import 'package:movie_app/features/home/data/repo/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -29,7 +31,22 @@ class HomeRepoImpl implements HomeRepo {
       final results = (data['results'] as List)
           .map((item) => MovieNewReleasesModel.fromJson(item))
           .toList();
-      print(data);
+
+      return Right(results);
+    } catch (e) {
+      return Left(ServerFailuer(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RecommendedModel>>>
+  fetchRecommendedMovies() async {
+    try {
+      var data = await apiService.getMovie(endPoint: "movie/top_rated");
+      final results = (data['results'] as List)
+          .map((item) => RecommendedModel.fromJson(item))
+          .toList();
+
       return Right(results);
     } catch (e) {
       return Left(ServerFailuer(e.toString()));
