@@ -11,7 +11,7 @@ class ApiServices {
       'Accept': 'application/json',
     };
   }
-  Future<Map<String, dynamic>> getPopular({required String endPoint}) async {
+  Future<Map<String, dynamic>> getMovie({required String endPoint}) async {
     var response = await _dio.get('$_baseUrl$endPoint');
     if (response.data is Map<String, dynamic>) {
       return response.data as Map<String, dynamic>;
