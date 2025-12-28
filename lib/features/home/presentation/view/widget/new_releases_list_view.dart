@@ -45,9 +45,10 @@ class NewReleasesListView extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
                           onTap: () {
+                            final movieId = state.newReles[index].id;
                             GoRouter.of(
                               context,
-                            ).push(AppRouter.khomeViewDetails);
+                            ).push('/homeViewDetails/$movieId');
                           },
                           child: CustomMovieImage(
                             imageUrl:

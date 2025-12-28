@@ -47,9 +47,10 @@ class RecomendedListView extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         child: GestureDetector(
                           onTap: () {
+                            final movieId = state.recommend[index].id;
                             GoRouter.of(
                               context,
-                            ).push(AppRouter.khomeViewDetails);
+                            ).push('/homeViewDetails/$movieId');
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

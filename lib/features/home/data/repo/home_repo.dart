@@ -11,5 +11,5 @@ abstract class HomeRepo {
   Future<Either<Failure, List<MovieNewReleasesModel>>>
   fetchNewRealeasesMovies();
   Future<Either<Failure, List<RecommendedMovie>>> fetchRecommendedMovies();
-  Future<Either<Failure, List<Detailes>>> fetchDetailsMovies(int movieId);
+  Future<Either<Failure, Detailes>> fetchDetailsMovies(int movieId);
 }

@@ -1,9 +1,11 @@
-class SpokenLanguage {
-  String? englishName;
-  String? iso6391;
-  String? name;
+import 'package:equatable/equatable.dart';
 
-  SpokenLanguage({this.englishName, this.iso6391, this.name});
+class SpokenLanguage extends Equatable {
+  final String? englishName;
+  final String? iso6391;
+  final String? name;
+
+  const SpokenLanguage({this.englishName, this.iso6391, this.name});
 
   factory SpokenLanguage.fromJson(Map<String, dynamic> json) {
     return SpokenLanguage(
@@ -18,4 +20,7 @@ class SpokenLanguage {
     'iso_639_1': iso6391,
     'name': name,
   };
+
+  @override
+  List<Object?> get props => [englishName, iso6391, name];
 }

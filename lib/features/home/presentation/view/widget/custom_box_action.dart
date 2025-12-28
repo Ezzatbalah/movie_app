@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomBoxAction extends StatelessWidget {
-  const CustomBoxAction({super.key});
+  final String label;
+
+  const CustomBoxAction({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +13,10 @@ class CustomBoxAction extends StatelessWidget {
         width: 65,
         height: 30,
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xff514F4F)),
+          border: Border.all(color: const Color(0xff514F4F)),
           borderRadius: BorderRadius.circular(4),
         ),
-        child: Center(child: Text("Action")),
+        child: Center(child: Text(label)),
       ),
     );
   }

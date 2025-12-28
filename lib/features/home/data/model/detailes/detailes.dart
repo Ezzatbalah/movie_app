@@ -1,37 +1,38 @@
+import 'package:equatable/equatable.dart';
+
 import 'genre.dart';
 import 'production_company.dart';
 import 'production_country.dart';
 import 'spoken_language.dart';
 
-class Detailes {
-  bool? adult;
-  String? backdropPath;
-  dynamic belongsToCollection;
-  int? budget;
-  List<Genre>? genres;
-  String? homepage;
-  int? id;
-  String? imdbId;
-  List<String>? originCountry;
-  String? originalLanguage;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  List<ProductionCompany>? productionCompanies;
-  List<ProductionCountry>? productionCountries;
-  String? releaseDate;
-  int? revenue;
-  int? runtime;
-  List<SpokenLanguage>? spokenLanguages;
-  String? status;
-  String? tagline;
-  String? title;
-  bool? video;
-  double? voteAverage;
-  int? voteCount;
+class Detailes extends Equatable {
+  final bool? adult;
+  final String? backdropPath;
+  final dynamic belongsToCollection;
+  final int? budget;
+  final List<Genre>? genres;
+  final String? homepage;
+  final int? id;
+  final String? imdbId;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final List<ProductionCompany>? productionCompanies;
+  final List<ProductionCountry>? productionCountries;
+  final String? releaseDate;
+  final int? revenue;
+  final int? runtime;
+  final List<SpokenLanguage>? spokenLanguages;
+  final String? status;
+  final String? tagline;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
 
-  Detailes({
+  const Detailes({
     this.adult,
     this.backdropPath,
     this.belongsToCollection,
@@ -40,7 +41,6 @@ class Detailes {
     this.homepage,
     this.id,
     this.imdbId,
-    this.originCountry,
     this.originalLanguage,
     this.originalTitle,
     this.overview,
@@ -71,7 +71,6 @@ class Detailes {
     homepage: json['homepage'] as String?,
     id: json['id'] as int?,
     imdbId: json['imdb_id'] as String?,
-    originCountry: json['origin_country'] as List<String>?,
     originalLanguage: json['original_language'] as String?,
     originalTitle: json['original_title'] as String?,
     overview: json['overview'] as String?,
@@ -106,7 +105,6 @@ class Detailes {
     'homepage': homepage,
     'id': id,
     'imdb_id': imdbId,
-    'origin_country': originCountry,
     'original_language': originalLanguage,
     'original_title': originalTitle,
     'overview': overview,
@@ -129,4 +127,35 @@ class Detailes {
     'vote_average': voteAverage,
     'vote_count': voteCount,
   };
+
+  @override
+  List<Object?> get props {
+    return [
+      adult,
+      backdropPath,
+      belongsToCollection,
+      budget,
+      genres,
+      homepage,
+      id,
+      imdbId,
+      originalLanguage,
+      originalTitle,
+      overview,
+      popularity,
+      posterPath,
+      productionCompanies,
+      productionCountries,
+      releaseDate,
+      revenue,
+      runtime,
+      spokenLanguages,
+      status,
+      tagline,
+      title,
+      video,
+      voteAverage,
+      voteCount,
+    ];
+  }
 }

@@ -4,8 +4,8 @@ import 'package:movie_app/core/utils/style.dart';
 
 class CustomAppbarMovieDetailes extends StatelessWidget
     implements PreferredSizeWidget {
-  const CustomAppbarMovieDetailes({super.key});
-
+  const CustomAppbarMovieDetailes({super.key, required this.title});
+  final String title;
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
@@ -18,10 +18,7 @@ class CustomAppbarMovieDetailes extends StatelessWidget
           GoRouter.of(context).pop();
         },
       ),
-      title: Text(
-        'Dora and the lost city of gold',
-        style: Style.textStyle14.copyWith(fontSize: 20),
-      ),
+      title: Text(title, style: Style.textStyle14.copyWith(fontSize: 20)),
     );
   }
 }

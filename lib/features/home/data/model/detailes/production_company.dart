@@ -1,10 +1,17 @@
-class ProductionCompany {
-  int? id;
-  String? logoPath;
-  String? name;
-  String? originCountry;
+import 'package:equatable/equatable.dart';
 
-  ProductionCompany({this.id, this.logoPath, this.name, this.originCountry});
+class ProductionCompany extends Equatable {
+  final int? id;
+  final String? logoPath;
+  final String? name;
+  final String? originCountry;
+
+  const ProductionCompany({
+    this.id,
+    this.logoPath,
+    this.name,
+    this.originCountry,
+  });
 
   factory ProductionCompany.fromJson(Map<String, dynamic> json) {
     return ProductionCompany(
@@ -21,4 +28,7 @@ class ProductionCompany {
     'name': name,
     'origin_country': originCountry,
   };
+
+  @override
+  List<Object?> get props => [id, logoPath, name, originCountry];
 }

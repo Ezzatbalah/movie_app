@@ -56,16 +56,11 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Detailes>>> fetchDetailsMovies(
-    int movieId,
-  ) async {
+  Future<Either<Failure, Detailes>> fetchDetailsMovies(int movieId) async {
     try {
       var data = await apiService.getMovie(endPoint: "movie/$movieId");
-      final results = (data['results'] as List)
-          .map((item) => Detailes.fromJson(item))
-          .toList();
-
-      return Right(results);
+      final detail = Detailes.fromJson(data);
+      return Right(detail);
     } catch (e) {
       return Left(ServerFailuer(e.toString()));
     }

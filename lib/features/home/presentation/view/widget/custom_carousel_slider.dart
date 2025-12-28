@@ -32,7 +32,7 @@ class CustomCarouselSlider extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRouter.khomeViewDetails);
+            GoRouter.of(context).push('/homeViewDetails/${movie.id}');
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12),

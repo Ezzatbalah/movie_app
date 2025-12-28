@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/Navigator/presentation/view/navebar_view.dart';
 import 'package:movie_app/features/browse/presentation/view/browse_view.dart';
@@ -10,7 +11,8 @@ import 'package:movie_app/features/wishList/presentation/view/wish_view.dart';
 abstract class AppRouter {
   static const kAppbarView = '/appbarView';
   static const khomeView = '/homeView';
-  static const khomeViewDetails = '/homeViewDetails';
+  static const khomeViewDetails = '/homeViewDetails/:id';
+
   static const kSearch = '/search';
   static const kBrowse = '/browse';
   static const kWishList = '/wishList';
@@ -24,7 +26,17 @@ abstract class AppRouter {
       GoRoute(path: khomeView, builder: (context, state) => const HomeView()),
       GoRoute(
         path: khomeViewDetails,
-        builder: (context, state) => const HomeDetailsView(),
+        builder: (context, state) {
+          final idParam = state.pathParameters['id'];
+          if (idParam == null) {
+            return Scaffold(body: Center(child: Text('Movie ID is missing!')));
+          }
+          final movieId = int.tryParse(idParam);
+          if (movieId == null) {
+            return Scaffold(body: Center(child: Text('Invalid Movie ID!')));
+          }
+          return HomeDetailsView(movieId: movieId);
+        },
       ),
       GoRoute(path: kSearch, builder: (context, state) => const SearchView()),
       GoRoute(path: kBrowse, builder: (context, state) => const BrowseView()),

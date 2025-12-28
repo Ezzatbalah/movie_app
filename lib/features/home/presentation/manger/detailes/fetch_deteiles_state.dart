@@ -13,10 +13,10 @@ final class FetchDeteilesLoading extends FetchDeteilesState {}
 
 final class FetchDeteilesFailuer extends FetchDeteilesState {
   final String errorMassege;
-  FetchDeteilesFailuer(this.errorMassege);
+  const FetchDeteilesFailuer(this.errorMassege);
 }
 
 final class FetchDeteilesSuccess extends FetchDeteilesState {
-  final List<Detailes> detail;
-  FetchDeteilesSuccess(this.detail);
+  final Detailes detail;
+  const FetchDeteilesSuccess(this.detail);
 }
