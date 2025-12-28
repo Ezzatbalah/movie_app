@@ -3,8 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:movie_app/core/utils/style.dart';
 
 class CustomRate extends StatelessWidget {
-  const CustomRate({super.key});
+  const CustomRate({super.key, required this.rate});
 
+  final String rate;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,7 +16,7 @@ class CustomRate extends StatelessWidget {
           color: Color(0xffFFDD4F),
         ),
         const SizedBox(width: 9),
-        Text('7.7', style: Style.textStyle13),
+        Text(rate, style: Style.textStyle13),
       ],
     );
   }

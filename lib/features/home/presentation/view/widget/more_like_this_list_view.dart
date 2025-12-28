@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
-
 import 'package:movie_app/core/utils/style.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_movie_image.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_rate.dart';
@@ -41,7 +40,7 @@ class MoreLikeThisListView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomMovieImage(imageUrl: 'assets/images/Image.png'),
-                        Expanded(child: CustomRate()),
+                        Expanded(child: CustomRate(rate: '55')),
                         const SizedBox(height: 4),
                         Text(
                           'Deadpool 2',

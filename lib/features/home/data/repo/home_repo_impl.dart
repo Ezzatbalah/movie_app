@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_app/core/error/failuer.dart';
 import 'package:movie_app/core/utils/api_services.dart';
+import 'package:movie_app/features/home/data/model/detailes/detailes.dart';
 import 'package:movie_app/features/home/data/model/new_realeases/movie_new_releases_model.dart';
 import 'package:movie_app/features/home/data/model/popular/movie_result.dart';
-import 'package:movie_app/features/home/data/model/recomended/recommended_model.dart';
+
+import 'package:movie_app/features/home/data/model/recomended/recommended_movie.dart';
 
 import 'package:movie_app/features/home/data/repo/home_repo.dart';
 
@@ -39,12 +41,28 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<RecommendedModel>>>
+  Future<Either<Failure, List<RecommendedMovie>>>
   fetchRecommendedMovies() async {
     try {
       var data = await apiService.getMovie(endPoint: "movie/top_rated");
       final results = (data['results'] as List)
-          .map((item) => RecommendedModel.fromJson(item))
+          .map((item) => RecommendedMovie.fromJson(item))
+          .toList();
+
+      return Right(results);
+    } catch (e) {
+      return Left(ServerFailuer(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Detailes>>> fetchDetailsMovies(
+    int movieId,
+  ) async {
+    try {
+      var data = await apiService.getMovie(endPoint: "movie/$movieId");
+      final results = (data['results'] as List)
+          .map((item) => Detailes.fromJson(item))
           .toList();
 
       return Right(results);

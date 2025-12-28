@@ -4,6 +4,7 @@ import 'package:movie_app/constant.dart';
 import 'package:movie_app/core/utils/app_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
 import 'package:movie_app/features/home/data/repo/home_repo_impl.dart';
+import 'package:movie_app/features/home/presentation/manger/FetchRecommend/fetch_recommend_cubit.dart';
 import 'package:movie_app/features/home/presentation/manger/fetc_New_releses/new_releses_cubit.dart';
 import 'package:movie_app/features/home/presentation/manger/fetch_popluar/featch_popular_cubit.dart';
 
@@ -27,6 +28,11 @@ class Movies extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               NewRelesesCubit(getIt.get<HomeRepoImpl>())..fetchNewReleses(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              FetchRecommendCubit(getIt.get<HomeRepoImpl>())
+                ..fetchNewRecommend(),
         ),
       ],
       child: MaterialApp.router(

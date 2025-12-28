@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/style.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_appbar_detailes.dart';
-
 import 'package:movie_app/features/home/presentation/view/widget/custom_image_detailes.dart';
 import 'package:movie_app/features/home/presentation/view/widget/more_like_this_list_view.dart';
 
@@ -22,7 +21,6 @@ class HomeDetailsViewBody extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/imagevid.png',
-
                   height: screenHight * 0.30,
                   fit: BoxFit.cover,
                 ),

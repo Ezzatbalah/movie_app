@@ -49,10 +49,9 @@ class CustomCarouselSlider extends StatelessWidget {
                       );
                     },
                   )
-                : Image.asset(
-                    'assets/images/default_movie.jpg',
-                    fit: BoxFit.cover,
-                    width: double.infinity,
+                : Container(
+                    color: Colors.grey[300],
+                    child: const Icon(Icons.movie, size: 60),
                   ),
           ),
         );

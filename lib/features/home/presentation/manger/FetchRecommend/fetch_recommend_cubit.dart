@@ -1,7 +1,8 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/features/home/data/model/recomended/recommended_model.dart';
+
+import 'package:movie_app/features/home/data/model/recomended/recommended_movie.dart';
 import 'package:movie_app/features/home/data/repo/home_repo_impl.dart';
 
 part 'fetch_recommend_state.dart';

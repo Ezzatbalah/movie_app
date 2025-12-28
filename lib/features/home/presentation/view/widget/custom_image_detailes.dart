@@ -49,7 +49,7 @@ class CustomImageDetailes extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: CustomRate(),
+                  child: CustomRate(rate: '44'),
                 ),
               ],
             ),

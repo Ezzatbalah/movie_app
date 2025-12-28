@@ -17,6 +17,6 @@ final class FetchRecommendFailuer extends FetchRecommendState {
 }
 
 final class FetchRecommendSuccess extends FetchRecommendState {
-  final List<RecommendedModel> recommend;
+  final List<RecommendedMovie> recommend;
   const FetchRecommendSuccess(this.recommend);
 }

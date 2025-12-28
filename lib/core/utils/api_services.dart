@@ -12,7 +12,7 @@ class ApiServices {
     };
   }
   Future<Map<String, dynamic>> getMovie({required String endPoint}) async {
-    var response = await _dio.get('$_baseUrl$endPoint');
+    var response = await _dio.get(endPoint);
     if (response.data is Map<String, dynamic>) {
       return response.data as Map<String, dynamic>;
     } else {
