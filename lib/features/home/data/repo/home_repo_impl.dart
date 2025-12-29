@@ -6,6 +6,7 @@ import 'package:movie_app/features/home/data/model/new_realeases/movie_new_relea
 import 'package:movie_app/features/home/data/model/popular/movie_result.dart';
 
 import 'package:movie_app/features/home/data/model/recomended/recommended_movie.dart';
+import 'package:movie_app/features/home/data/model/similar/similar.dart';
 
 import 'package:movie_app/features/home/data/repo/home_repo.dart';
 
@@ -60,6 +61,19 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.getMovie(endPoint: "movie/$movieId");
       final detail = Detailes.fromJson(data);
+      return Right(detail);
+    } catch (e) {
+      return Left(ServerFailuer(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, MoreLikeThisModel>> fetchMoreLikeThis() async {
+    try {
+      var data = await apiService.getMovie(
+        endPoint: "movie/{movie_id}/similar",
+      );
+      final detail = MoreLikeThisModel.fromJson(data);
       return Right(detail);
     } catch (e) {
       return Left(ServerFailuer(e.toString()));
