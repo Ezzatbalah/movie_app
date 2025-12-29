@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/constant.dart';
@@ -8,7 +9,7 @@ import 'package:movie_app/features/home/presentation/manger/FetchRecommend/fetch
 import 'package:movie_app/features/home/presentation/manger/fetc_New_releses/new_releses_cubit.dart';
 import 'package:movie_app/features/home/presentation/manger/fetch_popluar/featch_popular_cubit.dart';
 
-void main() {
+void main() async {
   setupServiceLocator();
   runApp(const Movies());
 }

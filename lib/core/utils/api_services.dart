@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 class ApiServices {
   final _baseUrl = 'https://api.themoviedb.org/3/';
+
   Dio _dio;
   ApiServices(this._dio) {
     _dio.options.baseUrl = _baseUrl;
