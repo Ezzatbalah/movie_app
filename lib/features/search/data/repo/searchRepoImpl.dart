@@ -4,9 +4,9 @@ import 'package:movie_app/core/utils/api_services.dart';
 import 'package:movie_app/features/search/data/model/search_response_model.dart';
 import 'package:movie_app/features/search/data/repo/search_repo.dart';
 
-class Searchrepoimpl implements SearchRepo {
+class searchRepoImpl implements SearchRepo {
   final ApiServices apiServices;
-  Searchrepoimpl(this.apiServices);
+  searchRepoImpl(this.apiServices);
   @override
   Future<Either<Failure, List<MovieModel>>> fetchSearch(String query) async {
     try {
