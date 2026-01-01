@@ -68,13 +68,16 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, MoreLikeThisModel>> fetchMoreLikeThis(
+  Future<Either<Failure, List<MoreLikeThisModel>>> fetchMoreLikeThis(
     int movieId,
   ) async {
     try {
       var data = await apiService.getMovie(endPoint: "movie/$movieId/similar");
-      final detail = MoreLikeThisModel.fromJson(data);
-      return Right(detail);
+      final results = (data['results'] as List)
+          .map((item) => MoreLikeThisModel.fromJson(item))
+          .toList();
+
+      return Right(results);
     } catch (e) {
       return Left(ServerFailuer(e.toString()));
     }

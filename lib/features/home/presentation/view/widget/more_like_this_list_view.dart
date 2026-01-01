@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/app_router.dart';
 import 'package:movie_app/core/utils/style.dart';
+import 'package:movie_app/features/home/data/model/similar/similar.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_movie_image.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_rate.dart';
 
 class MoreLikeThisListView extends StatelessWidget {
-  const MoreLikeThisListView({super.key});
+  const MoreLikeThisListView({super.key, required this.movies});
+  final List<MoreLikeThisModel> movies;
 
   @override
   Widget build(BuildContext context) {
@@ -28,29 +30,41 @@ class MoreLikeThisListView extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: movies.length,
               itemBuilder: (context, index) {
+                final movie = movies[index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.khomeViewDetails);
+                      GoRouter.of(
+                        context,
+                      ).push(AppRouter.khomeViewDetails, extra: movie.id);
                     },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomMovieImage(imageUrl: 'assets/images/Image.png'),
-                        Expanded(child: CustomRate(rate: '55')),
+                        CustomMovieImage(
+                          imageUrl: movie.posterPath != null
+                              ? 'https://image.tmdb.org/t/p/w500${movie.posterPath}'
+                              : 'assets/images/Image.png',
+                        ),
+
+                        Expanded(
+                          child: CustomRate(
+                            rate: movie.voteAverage.toStringAsFixed(1),
+                          ),
+                        ),
                         const SizedBox(height: 4),
                         Text(
-                          'Deadpool 2',
+                          movie.title ?? 'Unknown Title',
                           style: Style.textStyle13,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          '2018  R  1h 59m',
+                          movie.releaseDate?.split('-').first ?? 'N/A',
                           style: Style.textStyle13.copyWith(
                             fontSize: 8,
                             fontWeight: FontWeight.w400,

@@ -48,7 +48,7 @@ class NewReleasesListView extends StatelessWidget {
                             final movieId = state.newReles[index].id;
                             GoRouter.of(
                               context,
-                            ).push('/homeViewDetails/$movieId');
+                            ).push(AppRouter.khomeViewDetails, extra: movieId);
                           },
                           child: CustomMovieImage(
                             imageUrl:

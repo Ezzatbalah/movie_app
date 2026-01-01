@@ -17,6 +17,6 @@ final class MoreLikeThisFailuer extends MoreLikeThisState {
 }
 
 final class MoreLikeThisSuccess extends MoreLikeThisState {
-  final MoreLikeThisModel moreLikethis;
+  final List<MoreLikeThisModel> moreLikethis;
   const MoreLikeThisSuccess(this.moreLikethis);
 }

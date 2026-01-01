@@ -4,6 +4,7 @@ import 'package:movie_app/core/utils/custom_circel_indcator.dart';
 import 'package:movie_app/core/utils/custom_error_massege.dart';
 import 'package:movie_app/core/utils/style.dart';
 import 'package:movie_app/features/home/presentation/manger/detailes/fetch_deteiles_cubit.dart';
+import 'package:movie_app/features/home/presentation/manger/moreLike/more_like_this_cubit.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_appbar_detailes.dart';
 import 'package:movie_app/features/home/presentation/view/widget/custom_image_detailes.dart';
 import 'package:movie_app/features/home/presentation/view/widget/more_like_this_list_view.dart';
@@ -61,7 +62,23 @@ class HomeDetailsViewBody extends StatelessWidget {
                         screenWidth: screenWidth,
                         movie: movie,
                       ),
-                      MoreLikeThisListView(),
+                      BlocBuilder<MoreLikeThisCubit, MoreLikeThisState>(
+                        builder: (context, state) {
+                          if (state is MoreLikeThisLoading) {
+                            return CustomCircularIndicator();
+                          } else if (state is MoreLikeThisFailuer) {
+                            return CustomErrorMassege(
+                              errorMassege: state.errorMassege,
+                            );
+                          } else if (state is MoreLikeThisSuccess) {
+                            return MoreLikeThisListView(
+                              movies: state.moreLikethis,
+                            );
+                          } else {
+                            return SizedBox.shrink();
+                          }
+                        },
+                      ),
                     ],
                   ),
                 ),

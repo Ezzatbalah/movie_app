@@ -27,14 +27,7 @@ abstract class AppRouter {
       GoRoute(
         path: khomeViewDetails,
         builder: (context, state) {
-          final idParam = state.pathParameters['id'];
-          if (idParam == null) {
-            return Scaffold(body: Center(child: Text('Movie ID is missing!')));
-          }
-          final movieId = int.tryParse(idParam);
-          if (movieId == null) {
-            return Scaffold(body: Center(child: Text('Invalid Movie ID!')));
-          }
+          final movieId = state.extra as int;
           return HomeDetailsView(movieId: movieId);
         },
       ),

@@ -50,7 +50,7 @@ class RecomendedListView extends StatelessWidget {
                             final movieId = state.recommend[index].id;
                             GoRouter.of(
                               context,
-                            ).push('/homeViewDetails/$movieId');
+                            ).push(AppRouter.khomeViewDetails, extra: movieId);
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
