@@ -20,4 +20,16 @@ class ApiServices {
       throw Exception('Invalid response type: ${response.data.runtimeType}');
     }
   }
+
+  Future<Map<String, dynamic>> search({
+    required String endPoint,
+    required Map<String, String> queryParameters,
+  }) async {
+    var response = await _dio.get(endPoint);
+    if (response.data is Map<String, dynamic>) {
+      return response.data as Map<String, dynamic>;
+    } else {
+      throw Exception('Invalid response type: ${response.data.runtimeType}');
+    }
+  }
 }
