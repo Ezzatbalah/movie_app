@@ -11,13 +11,18 @@ class FetchSearchCubit extends Cubit<FeatchSearchState> {
   final searchRepoImpl searchrepoimpl;
   Future<void> fetchSearch(String query) async {
     emit(FeatchSearchLoading());
-    var result = await searchrepoimpl.fetchSearch(query);
+
+    final result = await searchrepoimpl.fetchSearch(query);
     result.fold(
       (failure) {
         emit(FeatchSearchFauiler(failure.errorMassege));
       },
-      (detail) {
-        emit(FeatchSearchSucess(detail));
+      (movies) {
+        if (movies.isEmpty) {
+          emit(const FeatchSearchFauiler("No movies found"));
+        } else {
+          emit(FeatchSearchSucess(movies));
+        }
       },
     );
   }

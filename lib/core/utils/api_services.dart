@@ -25,7 +25,7 @@ class ApiServices {
     required String endPoint,
     required Map<String, String> queryParameters,
   }) async {
-    var response = await _dio.get(endPoint);
+    var response = await _dio.get(endPoint, queryParameters: queryParameters);
     if (response.data is Map<String, dynamic>) {
       return response.data as Map<String, dynamic>;
     } else {
