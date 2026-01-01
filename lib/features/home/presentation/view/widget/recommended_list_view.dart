@@ -31,7 +31,7 @@ class RecomendedListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 12, top: 10),
+                  padding: const EdgeInsets.only(left: 12, top: 30),
                   child: Text(
                     'Recomended ',
                     style: Style.textStyle14.copyWith(fontSize: 15),
